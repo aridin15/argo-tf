@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_by_chatgpt.css') }}">
+
+{#    <meta charset="UTF-8">#}
+{#    <title>Result</title>#}
+</head>
+<body style="background-color:powderblue;">
+<h1>Weather Results For {{ location }}</h1> {# every comment and data we get from python is jinja #}
+<br>{# break line #}
+<table border="1"> {# table border #}
+    <tr> {# table row #}
+        <th>{# table header #}
+            date
+        </th>
+        <th>
+            temperature_day
+        </th>
+        <th>
+            temperature_night
+        </th>
+        <th>
+            humidity
+        </th>
+
+
+    </tr>
+    {% for day in weather_list[:-1] %} {# jinja allow for function #}
+        <tr>
+        <td>{{ day.datetime }}</td> {# td = table data #}
+        <td>{{ day.temperature_day }} c</td>
+        <td>{{ day.temperature_night }} c</td>
+        <td>{{ day.humidity }} %</td>
+        </tr>
+    {% endfor %}
+        <tr>
+        <td>week avg tmp</td>
+        <td>{{ weather_list[-1]['average'] }}</td>
+            {% if weather_list[-1]['average'] < 17 %}
+            	<td><a href="https://www.amazon.com/s?k=winter+clothes&ref=nb_sb_noss_1" target="_blank">{{ "Buy Winter Cloths" }}</a></td>
+                {% else %}
+                <td><a href="https://www.amazon.com/s?k=summer+clothes&ref=nb_sb_ss_ts-doa-p_2_12" target="_blank">{{ "Buy Summer Cloths" }}</a></td>
+            {% endif %}
+        </tr>
+</table>
+<br>
+<div class="back-button"> {# chatgpt generated #}
+<button type="button">
+    <a href="/"> {# defines a hyperlink, which is used to link from one page to another. #}
+        back
+    </a>
+</button>
+</div>
+</body>
+</html>
+

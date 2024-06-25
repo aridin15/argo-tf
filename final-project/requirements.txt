@@ -1,0 +1,8 @@
+deep-translator
+Flask
+gunicorn
+Jinja2
+pytest
+requests
+selenium
+

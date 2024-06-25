@@ -1,0 +1,25 @@
+<!DOCTYPE html> {# The declaration is not an HTML tag.
+ It is an "information" to the browser about what document type to expect. #}
+<html lang="en"> {# represents the root of an HTML document. #}
+<head>
+    <meta charset="UTF-8">
+    <title>summerrrrr Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_by_chatgpt.css') }}">
+
+
+</head>
+<body>
+<h1>summer Weather Search</h1>
+<form action="/result"  method="POST"> {# create an HTML form for user input. #}
+    <label for="location">
+        enter city or country:
+    </label>
+    <label>
+        <input type="text" name="location" placeholder="">
+    </label>
+    <button type="submit">go
+    </button>
+</form>
+</body>
+</html>
+
